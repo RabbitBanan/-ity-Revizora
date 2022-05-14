@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>City Revizora</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"type="text/javascript" charset="utf-8"></script>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    </head>
+    <body style='margin: 0'>
+        <div class="city-map">
+            <div id="issue-control" class="control">
+                <div class="issue-header"><h3>Перечень нарушений дорожной инфраструктуры</h3></div>
+                <div class="issue-filter">
+                    <select id="issue-select-filter" onchange="filter_issue_container(this.options[this.selectedIndex].value)">
+                        <option selected value="">Категория нарушения</option>
+                        <option value="Загрязненный дорожный знак">Дорожный знак</option>
+                        <option value="Стерта дорожная разметка">Дорожная разметка</option>
+                        <option value="Препятствие на дороге">Препятствие на дороге</option>
+                        <option value="Нарушение целостности дорожной неровности">Целостность дорожной неровности</option>
+                    </select>
+                </div>
+                <div id="issue-container" class="issue-list"></div>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+    <script type="text/javascript" src="static/javascript/map_handler.js"></script>
+</html>
